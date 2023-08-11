@@ -7,6 +7,7 @@ import Error from "./pages/Error";
 import SharedLayout from "./pages/SharedLayout";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import { useState } from "react";
 
 function App() {
@@ -23,7 +24,11 @@ function App() {
           <Route path="Login" element={<Login setUser={setUser}></Login>} />
           <Route
             path="Dashboard"
-            element={<Dashboard user={user}></Dashboard>}
+            element={
+              <ProtectedRoute user={user}>
+                <Dashboard user={user} />
+              </ProtectedRoute>
+            }
           />
           <Route path="*" element={<Error />} />
         </Route>
