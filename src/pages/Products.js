@@ -7,7 +7,7 @@ const Products = () => {
       <h2>products</h2>
       <div className="products">
         {products.map((product) => {
-          const {} = product;
+          // console.log(product.id);
           return (
             <article key={product.id}>
               <h5>{product.name}</h5>
